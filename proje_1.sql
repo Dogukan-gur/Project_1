@@ -69,7 +69,7 @@ where  continent is not null and new_cases !=0
 --group by date
 order by 1,2
 
-select de.continent, de.location, de.population ,sum( va.new_vaccinations) over (partition by month(de.date))as ayl˝k_vac, sum(va.new_vaccinations) over (partition by year(de.date)) as y˝ll˝k_vac,year(de.date) as y˝l
+select de.continent, de.location, de.population ,sum( va.new_vaccinations) over (partition by month(de.date))as ayl√Ωk_vac, sum(va.new_vaccinations) over (partition by year(de.date)) as y√Ωll√Ωk_vac,year(de.date) as y√Ωl
  
 from DOGUKAN..CovidDeaths de
 JOIN DOGUKAN..CovidVaccinations va ON de.location=va.location and de.date=va.date
@@ -145,7 +145,7 @@ select location ,population from DOGUKAN..CovidDeaths
 where location = 'Turkey'
 group by location,population
 
---«Eﬁ›TL› DENEMELER
+
 select
 	case
 		when try_convert(int, replace(new_vaccinations,'.',',')) is not null
@@ -177,7 +177,7 @@ from DOGUKAN..CovidVaccinations
 group by len(new_vaccinations)
 order by 1 
 
- --HATA VER›YOR NEDEN ANLAMADIM
+
 create table #percentpopvac
 (
 continent nvarchar(255),
@@ -207,7 +207,7 @@ DROP TABLE #percentpopvac
 
 
 
---FARKLI B›R Y÷NTEM
+--FARKLI B√ùR Y√ñNTEM
 select  *INTO #percentpopvac
 
 from
